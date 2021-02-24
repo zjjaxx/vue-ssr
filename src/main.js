@@ -14,4 +14,4 @@ const createApp=function(context){
   })
   return {router,vm}
 }
-module.exports=createApp
+export default createApp

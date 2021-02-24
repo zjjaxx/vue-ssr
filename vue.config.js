@@ -31,7 +31,7 @@ module.exports = {
             // 不要外置化webpack需要处理的依赖模块。 
             // 可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件， 
             // 还应该将修改`global`（例如polyfill）的依赖模块列入白名单 
-            whitelist: [/\.css$/]
+            allowlist: [/\.css$/]
         }) : undefined,
         optimization: { splitChunks: undefined },
         // 这是将服务器的整个输出构建为单个 JSON 文件的插件。
