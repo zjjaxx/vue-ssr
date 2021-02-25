@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <p>{{count}}</p>
+    <p>{{$store.state.count}}</p>
     <button @click="addCount">addCount</button>
   </div>
 </template>
@@ -12,6 +13,9 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
+  asyncData({store}){
+    return store.dispatch("fetchItem",{payload:10})
+  },
   name: "Home",
   components: {
     HelloWorld,
@@ -25,6 +29,12 @@ export default {
     addCount(){
       this.count++
     }
+  },
+  beforeMount(){
+    console.log("client beforeMount trigger?")
+  },
+  mounted(){
+    console.log("client has mounted?")
   }
 };
 </script>
